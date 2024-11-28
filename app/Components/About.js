@@ -3,6 +3,19 @@
 import { useTransform, useScroll, motion } from 'framer-motion';
 import { useRef } from 'react';
 
+// Custom Hook for Word Transformations
+const useWordTransforms = (length, scrollYProgress) => {
+  return Array.from({ length }).map((_, i) => {
+    const start = i / length;
+    const end = start + 1 / length;
+
+    // const wordOpacity = useTransform(scrollYProgress, [start, end], [0, 1]);
+    // const wordTranslateY = useTransform(scrollYProgress, [start, end], [30, 0]);
+
+    return { };
+  });
+};
+
 export const About = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -21,7 +34,7 @@ export const About = () => {
   const buttonY = useTransform(scrollYProgress, [0.4, 0.6], [30, 0]);
 
   const paragraph = `
-     A software developer with a background in Computer Science and Engineering. 
+    A software developer with a background in Computer Science and Engineering. 
     I enjoy crafting elegant solutions to complex problems and am always exploring new technologies. 
     When I'm not coding, I love diving into tech trends and collaborating on exciting projects. 
     Feel free to browse my work or get in touch—I’d love to connect!
@@ -29,6 +42,9 @@ export const About = () => {
 
   // Split the paragraph into words
   const words = paragraph.split(' ');
+
+  // Precompute transformations for all words
+  const wordTransforms = useWordTransforms(words.length, scrollYProgress);
 
   return (
     <div
@@ -61,31 +77,22 @@ export const About = () => {
 
       {/* Paragraph */}
       <p className="text-xl md:text-4xl font-light leading-relaxed max-w-7xl">
-        {words.map((word, i) => {
-          const start = i / words.length;
-          const end = start + 1 / words.length;
-
-          // Word-by-word reveal animation with slower and smoother effects
-          const wordOpacity = useTransform(scrollYProgress, [start, end], [0, 1]);
-          const wordTranslateY = useTransform(scrollYProgress, [start, end], [30, 0]);
-
-          return (
-            <motion.span
-              key={i}
-              className="inline-block relative mr-2 mt-2"
-              style={{
-                opacity: wordOpacity,
-                y: wordTranslateY, // Reveal effect for each word
-                transition: {
-                  duration: 2, // Slower reveal for words
-                  ease: 'easeOut',
-                },
-              }}
-            >
-              {word}
-            </motion.span>
-          );
-        })}
+        {words.map((word, i) => (
+          <motion.span
+            key={i}
+            className="inline-block relative mr-2 mt-2"
+            style={{
+              opacity: wordTransforms[i].wordOpacity,
+              y: wordTransforms[i].wordTranslateY, // Reveal effect for each word
+              transition: {
+                duration: 2, // Slower reveal for words
+                ease: 'easeOut',
+              },
+            }}
+          >
+            {word}
+          </motion.span>
+        ))}
       </p>
 
       {/* More About Me Button */}
