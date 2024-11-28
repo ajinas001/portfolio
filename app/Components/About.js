@@ -72,7 +72,7 @@ export const About = () => {
           transition: { duration: 1.5 }, // Slower transition
         }}
       >
-        Hi, I’m <span className="underline">Ajinas</span>,
+        Hi, I&apos;m <span className="underline">Ajinas</span>,
       </motion.h1>
 
       {/* Paragraph */}

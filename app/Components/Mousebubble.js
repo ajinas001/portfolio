@@ -40,7 +40,7 @@ const MouseBubble = () => {
        // Glass effect background
         // backdropFilter: "blur(5px)", // Glass blur effect
         borderRadius: "50%", // Ensure circular shape
-        border: "1px solid rgba(255, 255, 255, 0.3)", // Slight border to enhance the effect
+        // border: "1px solid rgba(255, 255, 255, 0.3)", // Slight border to enhance the effect
       }}
       className="rounded-full"
     >
