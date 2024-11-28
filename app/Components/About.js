@@ -10,6 +10,16 @@ export const About = () => {
     offset: ['start end', 'center center'], // Delays animation start for smoother appearance
   });
 
+  // Define all transformations at the top level
+  const subheadingOpacity = useTransform(scrollYProgress, [0.1, 0.3], [0, 1]);
+  const subheadingY = useTransform(scrollYProgress, [0.1, 0.3], [30, 0]);
+
+  const headingOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
+  const headingY = useTransform(scrollYProgress, [0.2, 0.4], [30, 0]);
+
+  const buttonOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+  const buttonY = useTransform(scrollYProgress, [0.4, 0.6], [30, 0]);
+
   const paragraph = `
      A software developer with a background in Computer Science and Engineering. 
     I enjoy crafting elegant solutions to complex problems and am always exploring new technologies. 
@@ -29,8 +39,8 @@ export const About = () => {
       <motion.p
         className="text-lg text-gray-700 mb-4"
         style={{
-          opacity: useTransform(scrollYProgress, [0.1, 0.3], [0, 1]),
-          y: useTransform(scrollYProgress, [0.1, 0.3], [30, 0]),
+          opacity: subheadingOpacity,
+          y: subheadingY,
           transition: { duration: 1.5 }, // Slower transition
         }}
       >
@@ -41,8 +51,8 @@ export const About = () => {
       <motion.h1
         className="text-4xl md:text-7xl font-bold mb-4"
         style={{
-          opacity: useTransform(scrollYProgress, [0.2, 0.4], [0, 1]),
-          y: useTransform(scrollYProgress, [0.2, 0.4], [30, 0]),
+          opacity: headingOpacity,
+          y: headingY,
           transition: { duration: 1.5 }, // Slower transition
         }}
       >
@@ -56,16 +66,16 @@ export const About = () => {
           const end = start + 1 / words.length;
 
           // Word-by-word reveal animation with slower and smoother effects
-          const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
-          const translateY = useTransform(scrollYProgress, [start, end], [30, 0]);
+          const wordOpacity = useTransform(scrollYProgress, [start, end], [0, 1]);
+          const wordTranslateY = useTransform(scrollYProgress, [start, end], [30, 0]);
 
           return (
             <motion.span
               key={i}
               className="inline-block relative mr-2 mt-2"
               style={{
-                opacity,
-                y: translateY, // Reveal effect for each word
+                opacity: wordOpacity,
+                y: wordTranslateY, // Reveal effect for each word
                 transition: {
                   duration: 2, // Slower reveal for words
                   ease: 'easeOut',
@@ -82,14 +92,11 @@ export const About = () => {
       <motion.div
         className="mt-8"
         style={{
-          opacity: useTransform(scrollYProgress, [0.4, 0.6], [0, 1]),
-          y: useTransform(scrollYProgress, [0.4, 0.6], [30, 0]),
+          opacity: buttonOpacity,
+          y: buttonY,
         }}
       >
-         <button className="relative px-6 py-3 mt-8 text-sm font-semibold text-gray-900 border border-black rounded-full group hover:bg-gray-900 hover:text-white">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            
-          </span>
+        <button className="relative px-6 py-3 mt-8 text-sm font-semibold text-gray-900 border border-black rounded-full group hover:bg-gray-900 hover:text-white">
           MORE ABOUT ME
         </button>
       </motion.div>
