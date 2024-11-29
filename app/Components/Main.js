@@ -4,16 +4,16 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 export const Hero = () => {
-
   const [isVisible, setIsVisible] = useState(true); // Track visibility
   const targetRef = useRef();
-  const tenPercentScroll = document.documentElement.scrollHeight * 0.05;
-
+  const [tenPercentScroll, setTenPercentScroll] = useState(0); // Dynamically calculate height
 
   useEffect(() => {
+    // Ensure `document` is accessed only on the client
     const handleScroll = () => {
+     
       // Hide or blur when scrolling
-      if (window.scrollY > tenPercentScroll) {
+      if (window.scrollY > 0) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
@@ -26,7 +26,6 @@ export const Hero = () => {
     // Cleanup listener on component unmount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
 
 
   const { scrollYProgress } = useScroll({
@@ -61,15 +60,6 @@ export const Hero = () => {
     },
   };
 
-  // const wordVariants = {
-  //   hidden: { opacity: 0, scale: 0.8 },
-  //   visible: {
-  //     opacity: 1,
-  //     scale: 1,
-  //     transition: { duration: 0.6, ease: "easeOut" },
-  //   },
-  // };
-
   return (
     <motion.section
       ref={targetRef}
@@ -91,36 +81,29 @@ export const Hero = () => {
         }}
         className="fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-start ms-4 md:ms-8 lg:ms-20 z-10"
       >
-        {/* Animated Heading */}
         <motion.h1
           className="text-3xl md:text-5xl lg:text-7xl font-light text-start leading-tight"
           variants={textContainerVariants}
           initial="hidden"
           animate="visible"
         >
-          <div className=" flex flex-col flex-wrap ">
+          <div className="flex flex-col flex-wrap">
             <motion.div variants={textVariants}>Concept.Craft.Code.</motion.div>
-
             <motion.div variants={textVariants}>Conquer.Repeat.</motion.div>
-
           </div>
         </motion.h1>
 
-        {/* Subtext */}
         <motion.p
-  className="text-gray-500    text-xs md:text-sm lg:text-base font-bold "
-  variants={textVariants}
-  initial="hidden"
-  animate="visible"
->
-  Crafting digital experiences with precision and flair.
-</motion.p>
+          className="text-gray-500 text-xs md:text-sm lg:text-base font-bold"
+          variants={textVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          Crafting digital experiences with precision and flair.
+        </motion.p>
 
-
-        {/* Call to Action Button */}
         <motion.footer
           className="mt-16 gap-4"
-          // variants={textVariants}
           initial="hidden"
           animate="visible"
         >
@@ -133,34 +116,29 @@ export const Hero = () => {
             Open to freelance
           </motion.button>
         </motion.footer>
-
       </motion.div>
 
-      {/* Scroll Down Arrow */}
       <motion.div
-         ref={targetRef}
-         className={`absolute bottom-24 left-1/2 transform -translate-x-1/2 text-black flex flex-col items-center cursor-pointer`}
-         initial={{ opacity: 1, filter: "blur(0px)" }}
-         animate={{
-           opacity: isVisible ? 1 : 0, // Fade out when not visible
-          //  filter: isVisible ? "blur(0px)" : "blur(5px)", // Apply blur effect
-           y: [0, 10, 0], // Bounce animation
-         }}
-         transition={{
-           duration: 0.5, // Smooth transition
-           ease: "easeInOut",
-           repeat: isVisible ? Infinity : 0, // Stop bouncing when hidden
-         }}
-      >
-        {/* Content goes here */}
-   
-      <motion.div
-        className="w-8 h-8 border-b-4 border-r-4 transform rotate-45"
-        style={{
-          borderColor: "currentColor", // Matches the current text color
+        ref={targetRef}
+        className={`absolute bottom-24 left-1/2 transform -translate-x-1/2 text-black flex flex-col items-center cursor-pointer`}
+        initial={{ opacity: 1, filter: "blur(0px)" }}
+        animate={{
+          opacity: isVisible ? 1 : 0,
+          y: [0, 10, 0], // Bounce animation
         }}
-      ></motion.div>
-    </motion.div>
-    </motion.section >
+        transition={{
+          duration: 0.5,
+          ease: "easeInOut",
+          repeat: isVisible ? Infinity : 0,
+        }}
+      >
+        <motion.div
+          className="w-8 h-8 border-b-4 border-r-4 transform rotate-45"
+          style={{
+            borderColor: "currentColor", // Matches the current text color
+          }}
+        ></motion.div>
+      </motion.div>
+    </motion.section>
   );
 };

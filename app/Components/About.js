@@ -9,10 +9,10 @@ const useWordTransforms = (length, scrollYProgress) => {
     const start = i / length;
     const end = start + 1 / length;
 
-    const wordOpacity = useTransform(scrollYProgress, [start, end], [0, 1]);
-    const wordTranslateY = useTransform(scrollYProgress, [start, end], [30, 0]);
+    // const wordOpacity = useTransform(scrollYProgress, [start, end], [0, 1]);
+    // const wordTranslateY = useTransform(scrollYProgress, [start, end], [30, 0]);
 
-    return { wordOpacity, wordTranslateY };
+    return {  };
   });
 };
 
