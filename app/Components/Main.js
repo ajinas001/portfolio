@@ -65,7 +65,7 @@ export const Hero = () => {
       ref={targetRef}
       className="relative h-screen bg-fixed bg-center"
       style={{
-        backgroundImage: "url('/images/sample1.jpg')",
+        backgroundImage: "url('/images/sample11.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
