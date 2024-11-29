@@ -22,6 +22,6 @@ body {
 }
 
 body::-webkit-scrollbar {
-  display: none;  /* For Chrome, Safari, and newer versions of Edge */
+  display: none;  
 }
 

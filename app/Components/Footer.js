@@ -5,6 +5,7 @@ const Footer = () => {
     <div className="flex sticky z-50 flex-col items-center justify-between h-screen px-6 py-12 text-center bg-white">
       <div className="flex flex-col items-center justify-center flex-grow">
         {/* <hr className="origin-top-left bg-[#21212155] border-2 w-auto h-[1px] mb-8" /> */}
+        <hr className="absolute top-0 left-0 w-full border-t-2 border-gray-300" />
         <h1 className="text-6xl md:text-8xl font-bold leading-tight text-gray-900">
           Let&apos;s chat.
         </h1>

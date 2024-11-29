@@ -8,6 +8,16 @@ const Navbar = () => {
   const DURATION = 0.25;
   const STAGGER = 0.025;
 
+  const textVariants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+
   const createMotionSpans = (text, direction) =>
     text.split('').map((char, i) => (
       <motion.span
@@ -42,7 +52,7 @@ const Navbar = () => {
     <div className="relative">
       <nav className="fixed top-0 left-0 z-50 flex justify-between items-center py-4 md:py-8 px-4 sm:px-8 md:px-16 w-full ">
         {/* Logo */}
-        <div className="text-3xl font-bold">AJINAS</div>
+        <motion.div variants={textVariants} initial='hidden' animate='visible' className="text-3xl font-bold">AJINAS</motion.div>
 
         {/* Mobile Menu Toggle Button */}
         <div className="sm:hidden">
@@ -65,7 +75,7 @@ const Navbar = () => {
         </div>
 
         {/* Menu Items for Large Screens */}
-        <ul className="hidden sm:flex space-x-6 text-gray-800 font-medium text-lg">
+        <motion.ul variants={textVariants} initial='hidden' animate='visible'  className="hidden sm:flex space-x-6 text-gray-800 font-medium text-lg">
           <li>
             <FlipText text="Home" />
           </li>
@@ -84,7 +94,7 @@ const Navbar = () => {
               <div className="w-4 h-4 bg-black rounded-full"></div>
             </div>
           </li>
-        </ul>
+        </motion.ul>
       </nav>
 
       {/* Mobile Menu Items (Toggleable) */}

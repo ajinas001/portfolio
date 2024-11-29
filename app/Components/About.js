@@ -12,7 +12,7 @@ const useWordTransforms = (length, scrollYProgress) => {
     const wordOpacity = useTransform(scrollYProgress, [start, end], [0, 1]);
     const wordTranslateY = useTransform(scrollYProgress, [start, end], [30, 0]);
 
-    return { wordOpacity,wordTranslateY};
+    return { wordOpacity, wordTranslateY };
   });
 };
 
@@ -51,6 +51,9 @@ export const About = () => {
       className="relative min-h-screen px-8 py-16 flex flex-col justify-center items-center"
       ref={containerRef}
     >
+      {/* Horizontal Line */}
+      <hr className="absolute top-0 left-0 w-full border-t-2 border-gray-300" />
+
       {/* Subheading */}
       <motion.p
         className="text-lg text-gray-700 mb-4"
