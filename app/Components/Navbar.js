@@ -17,6 +17,13 @@ const Navbar = () => {
     },
   };
 
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle('dark', !isDarkMode);
+  };
+
 
   const createMotionSpans = (text, direction) =>
     text.split('').map((char, i) => (
@@ -75,7 +82,7 @@ const Navbar = () => {
         </div>
 
         {/* Menu Items for Large Screens */}
-        <motion.ul variants={textVariants} initial='hidden' animate='visible'  className="hidden sm:flex space-x-6 text-gray-800 font-medium text-lg">
+        <motion.ul variants={textVariants} initial='hidden' animate='visible' className="hidden sm:flex space-x-6 text-gray-800 font-medium text-lg">
           <li>
             <FlipText text="Home" />
           </li>
@@ -90,9 +97,16 @@ const Navbar = () => {
           </li>
           {/* Dark Mode Toggle */}
           <li>
-            <div className="bg-gray-200 w-10 h-5 rounded-full flex items-center px-1">
-              <div className="w-4 h-4 bg-black rounded-full"></div>
-            </div>
+          <button
+                onClick={toggleTheme}
+                className={`w-12 h-5 rounded-full flex items-center px-1 transition-colors ${isDarkMode ? 'bg-black' : 'bg-gray-200'
+                  }`}
+              >
+                <div
+                  className={`w-5 h-5 rounded-full transition-transform transform ${isDarkMode ? 'translate-x-6 bg-white' : 'translate-x-0 bg-black'
+                    }`}
+                ></div>
+              </button>
           </li>
         </motion.ul>
       </nav>
@@ -100,7 +114,7 @@ const Navbar = () => {
       {/* Mobile Menu Items (Toggleable) */}
       {isOpen && (
         <div className="sm:hidden absolute top-0 left-0 w-full bg-white shadow-md z-40">
-          <ul className="flex flex-col space-y-4 text-gray-800 font-medium text-lg py-4 px-8">
+          <ul className="flex flex-col space-y-4 text-gray-800 font-medium text-lg py-4 px-8 mt-12">
             <li>
               <FlipText text="Home" />
             </li>
@@ -114,9 +128,29 @@ const Navbar = () => {
               <FlipText text="Contact" />
             </li>
             <li>
-              <div className="bg-gray-200 w-10 h-5 rounded-full flex items-center px-1">
-                <div className="w-4 h-4 bg-black rounded-full"></div>
-              </div>
+              <button
+                onClick={toggleTheme}
+                className={`w-12 h-6 rounded-full flex items-center px-1 transition-colors ${isDarkMode ? 'bg-black' : 'bg-gray-200'
+                  }`}
+              >
+                <div
+                  className={`w-5 h-5 rounded-full transition-transform transform ${isDarkMode ? 'translate-x-6 bg-white' : 'translate-x-0 bg-black'
+                    }`}
+                ></div>
+              </button>
+              <>
+
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input className="sr-only peer" defaultValue="" type="checkbox" />
+                  <div className="peer ring-2 ring-gray-500 bg-gradient-to-r from-rose-400 to-red-900 rounded-full outline-none duration-500
+                   after:duration-300 w-10 h-5  shadow-inner peer-checked:bg-gradient-to-r peer-checked:from-emerald-500
+                    peer-checked:to-emerald-900 shadow-gray-900 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gray-500 
+                     after:content-[''] after:rounded-full after:absolute after:outline-none after:h-12 after:w-12 after:bg-gray-900
+                      after:-top-2 after:-left-2 after:flex after:justify-center after:items-center after:border-4 after:border-gray-500
+                        peer-checked:after:translate-x-14"></div>
+                </label>
+              </>
+
             </li>
           </ul>
         </div>
@@ -125,4 +159,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;

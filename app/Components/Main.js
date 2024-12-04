@@ -94,7 +94,7 @@ export const Hero = () => {
         </motion.h1>
 
         <motion.p
-          className="text-gray-500 text-xs md:text-sm lg:text-base font-bold"
+          className="text-gray-500 text-xs md:text-sm p-5 lg:text-base font-bold"
           variants={textVariants}
           initial="hidden"
           animate="visible"
