@@ -29,7 +29,7 @@ const Footer = () => {
           </p>
           <p className="text-sm">© 2024 — @ajinasp001</p>
           <div className="flex space-x-4 text-black">
-            <a href="#" aria-label="GitHub">
+            <a href="https://github.com/ajinas001" aria-label="GitHub">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -49,7 +49,7 @@ const Footer = () => {
                 <path d="M23 2.5a10 10 0 01-2.8.8 4.6 4.6 0 002-2.6c-1 .6-2.1 1-3.3 1.3A4.6 4.6 0 0016.1 1c-2.6 0-4.6 2.2-4.6 5 0 .4 0 .8.1 1.2-4-.2-7.6-2-10-4.7-.4.8-.7 1.7-.7 2.6 0 1.8.9 3.3 2.2 4.2-.8 0-1.5-.2-2.2-.6 0 2.6 1.6 4.8 3.8 5.3-.4.2-.9.2-1.4.2-.3 0-.6 0-.9-.1a4.6 4.6 0 004.3 3.2 9.3 9.3 0 01-6.8 2 13 13 0 007 2c8.4 0 13-7.3 13-13.6v-.6c1-.7 1.9-1.6 2.6-2.6z" />
               </svg>
             </a>
-            <a href="#" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/ajinas-p/" aria-label="LinkedIn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

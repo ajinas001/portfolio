@@ -5,12 +5,13 @@ import { Hero } from "./Components/Main";
 import {About}  from "./Components/About";
 import Lenis from '@studio-freight/lenis'
 import Navbar from "./Components/Navbar";
-import { UIUXDesign } from "./Components/Ui-Ux";
-import { WebDevelopment } from "./Components/Webdev";
+import { Ecom, UIUXDesign } from "./Components/ecom";
+import { WebDevelopment, Zahrat } from "./Components/zahrat";
 import Swiper from "./Components/Horizontal";
 import MouseBubble from "./Components/Mousebubble";
 import Footer from "./Components/Footer";
-import { Secondproject } from "./Components/Sample";
+import { Radish, Secondproject } from "./Components/Radish";
+import { Hospital } from "./Components/Hospital";
 // import WebDevelopment from "./Components/Webdev";
 // import UIUXDesign from "./Components/Ui-Ux";
 
@@ -38,8 +39,10 @@ export default function Page() {
       <Hero />
       <div className="relative z-10 w-full overflow-x-clip">
         <About />
-        <WebDevelopment />
-        <Secondproject/>
+        <Zahrat />
+        <Radish/>
+        <Ecom/>
+        <Hospital/>
         {/* <UIUXDesign/> */}
         <Swiper/>
        

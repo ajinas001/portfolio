@@ -46,22 +46,19 @@ export const Hero = () => {
     },
   };
 
-  const buttonVariants = {
-    hover: { scale: 1.1, boxShadow: "0px 0px 10px rgba(0,0,0,0.3)" },
-    tap: { scale: 0.95 },
-  };
+ 
 
   return (
     <motion.section
       ref={targetRef}
       className="relative h-screen bg-fixed bg-center bg-white text-black"
-      style={{
-        backgroundImage: "url('/images/sample11.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-        backgroundRepeat: "no-repeat",
-      }}
+      // style={{
+      //   backgroundColor: "transparent",
+      //   backgroundImage: "radial-gradient(#dcdcdc 1px, #f2f2f0 0px)", // Lighter grey color with thinner grid
+      //   backgroundSize: "15px 15px", // Decrease the grid size for a finer pattern
+      //   height: "100vh",
+      // }}
+      
     >
       <motion.div
         style={{
@@ -101,7 +98,6 @@ export const Hero = () => {
           Crafting digital experiences with precision and flair.
         </motion.p>
 
-
         <motion.div
           className="mt-16"
           initial="hidden"
@@ -131,7 +127,6 @@ export const Hero = () => {
           >
             Open to freelance
           </motion.button>
-
         </motion.div>
       </motion.div>
 
@@ -154,7 +149,6 @@ export const Hero = () => {
           style={{ borderColor: "currentColor" }}
         ></motion.div>
       </motion.div>
-
     </motion.section>
   );
 };

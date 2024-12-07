@@ -4,7 +4,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
-export const Secondproject = () => {
+export const Ecom = () => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -21,11 +21,11 @@ export const Secondproject = () => {
                 y, // Apply scroll effect on Y position
             }}
         >
-              <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#91aa9d] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
+              <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#3e606f] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
           {/* Left Side: Image */}
           <div className="py-4 md:py-2 relative md:w-2/4 flex flex-col justify-center items-center">
             <motion.img
-              src="/images/radish.png"
+              src="/images/ecom.png"
               alt="Website Showcase"
               className="w-full md:w-4/5 rounded-lg overflow-hidden"
              
@@ -35,7 +35,7 @@ export const Secondproject = () => {
           {/* Right Side: Text and Tags */}
           <div className="md:w-2/4 text-white mt-4 md:mt-0">
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Radish Grill & Cafe
+              Shopify
             </h2>
             <div className="flex flex-wrap gap-2 md:gap-4 mb-4">
               {/* Tags */}

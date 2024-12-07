@@ -1,60 +1,41 @@
+// UIUXDesign.tsx
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
-export const WebDevelopment = () => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'], // Adjust scroll offset
-  });
+export const Hospital = () => {
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ['start start', 'start center'], // Adjust scroll offset
+    });
 
-  // Zoom-out effect for the image
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]); // Scale from 1 to 0.8
-  const y = useTransform(scrollYProgress, [0, 1], [0, 50]); // Vertical movement for the sticky section
+    const y = useTransform(scrollYProgress, [0, 1], [0, 50]); // Apply vertical movement on scroll
 
-  return (
-    <>
-      <section className="bg-white py-12 px-8">
-        <div className="max-w-9xl mx-auto text-start">
-          {/* <hr className="bg-[#21212155] border-0 w-auto h-[1px] mb-8" /> */}
-          <h2 className="text-3xl md:text-6xl font-bold text-black mb-8">
-            Featured Works.
-          </h2>
-          <hr className="origin-top-left bg-[white] border-1 border-black w-auto h-[1px] mb-8" />
-          <p className="text-xl md:text-4xl text-black">
-            Explore my featured projects that showcase my skills and experience in creating impactful digital solutions.
-            From complex data visualizations to innovative web applications, these projects highlight my ability to
-            deliver exceptional results.
-          </p>
-        </div>
-      </section>
-
-      <motion.div
-        ref={ref}
-        className="sticky top-[11%] md:top-[15%] z-20 flex flex-col lg:flex-row items-start gap-10 bg-white px-6 border-b border-gray-300"
-        style={{
-          y, // Apply scroll effect on Y position
-        }}
-      >
-        <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#3e606f] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
+    return (
+        <motion.div
+            ref={ref}
+            className="sticky top-[8%] md:top-[13%] z-30 flex flex-col lg:flex-row items-start gap-10  px-6 border-b border-gray-300  "
+            style={{
+                y, // Apply scroll effect on Y position
+            }}
+        >
+              <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#91aa9d] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
           {/* Left Side: Image */}
           <div className="py-4 md:py-2 relative md:w-2/4 flex flex-col justify-center items-center">
             <motion.img
-              src="/images/zahrat.png"
+              src="/images/hosp.png"
               alt="Website Showcase"
               className="w-full md:w-4/5 rounded-lg overflow-hidden"
-              style={{
-                scale, // Apply zoom-out effect
-              }}
+             
             />
           </div>
 
           {/* Right Side: Text and Tags */}
           <div className="md:w-2/4 text-white mt-4 md:mt-0">
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Zahrath al reef
+              Hospital token booking
             </h2>
             <div className="flex flex-wrap gap-2 md:gap-4 mb-4">
               {/* Tags */}
@@ -84,7 +65,7 @@ export const WebDevelopment = () => {
           </div>
         </section>
 
-      </motion.div>
-    </>
-  );
+
+        </motion.div>
+    );
 };
