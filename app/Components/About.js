@@ -65,7 +65,7 @@ export const About = () => {
           y: buttonY,
         }}
       >
-        <div className='space-x-4'>
+        <div className='space-x-2 md:space-x-4'>
        <a href="../Ajinas.Resume.pdf" download>
   <button className="relative px-6 py-3 mt-8 text-sm font-semibold text-gray-900 border border-black rounded-full group hover:bg-gray-900 hover:text-white">
     Resume

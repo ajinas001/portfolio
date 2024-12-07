@@ -13,7 +13,7 @@ export const Hero = () => {
     const handleScroll = () => {
 
       // Hide or blur when scrolling
-      if (window.scrollY > 0) {
+      if (window.scrollY > 20) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
@@ -83,7 +83,7 @@ export const Hero = () => {
         className="fixed top-0 mt-8 left-0 w-full h-screen flex flex-col justify-center items-start ms-2 md:ms-8 lg:ms-20 z-10"
       >
         <motion.h1
-          className="text-5xl px-2 font-bold md:text-5xl lg:text-7xl justify-start items-start text-start md:text-start leading-tight"
+          className="text-6xl px-2 font-semibold md:text-5xl lg:text-7xl justify-start items-start text-start md:text-start leading-tight"
           variants={textContainerVariants}
           initial="hidden"
           animate="visible"
@@ -105,7 +105,7 @@ export const Hero = () => {
 
 
         <motion.p
-          className="hidden md:block text-black text-s md:text-sm text-center md:text-start p-5 mt-4 md:mt-4 lg:text-base font-bold"
+          className="hidden md:block text-black text-s md:text-sm text-center md:text-start p-5 mt-4 md:mt-4 lg:text-base font-medium"
           variants={textVariants}
           initial="hidden"
           animate="visible"

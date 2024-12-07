@@ -52,7 +52,7 @@ export const WebDevelopment = () => {
           </div>
 
           {/* Right Side: Text and Tags */}
-          <div className="md:w-2/4 text-[#91aa9d] mt-4 md:mt-0">
+          <div className="md:w-2/4 text-white mt-4 md:mt-0">
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
               Zahrath al reef
             </h2>

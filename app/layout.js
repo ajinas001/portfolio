@@ -3,9 +3,10 @@ import "./globals.css";
 
 // Load your custom font
 const elronMono = localFont({
-  src: "./fonts/Elronmonospace.ttf", // path to your font file
+  // src: "./fonts/Elronmonospace.ttf", // path to your font file
+  src: "./fonts/EquipExtended-Light.ttf", // path to your font file
   variable: "--font-elron-mono", // name of the CSS variable
-  weight: "500", // You can adjust the weight if applicable
+  weight: "200", // You can adjust the weight if applicable
 });
 
 export const metadata = {

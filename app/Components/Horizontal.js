@@ -93,7 +93,7 @@ const CustomSection = () => {
                     <SectionContent
                         number="[02]"
                         title="Front-End Development"
-                        description="Design intuitive, responsive, and engaging user interfaces. I specialize in creating pixel-perfect designs that bring your brand to life, ensuring seamless user experiences across all devices."
+                        description="Design intuitive, responsive, and engaging user interfaces. I specialize in creating perfect designs that bring your brand to life, ensuring seamless user experiences across all devices."
                         features={[
                             "Responsive UI/UX Design",
                             "Interactive Animations",

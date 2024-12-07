@@ -33,7 +33,7 @@ export const Secondproject = () => {
           </div>
 
           {/* Right Side: Text and Tags */}
-          <div className="md:w-2/4 text-[#3e606f] mt-4 md:mt-0">
+          <div className="md:w-2/4 text-white mt-4 md:mt-0">
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
               Radish Grill & Cafe
             </h2>
