@@ -21,7 +21,7 @@ export const Secondproject = () => {
                 y, // Apply scroll effect on Y position
             }}
         >
-              <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#d2d7b8] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
+              <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#91aa9d] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
           {/* Left Side: Image */}
           <div className="py-4 md:py-2 relative md:w-2/4 flex flex-col justify-center items-center">
             <motion.img
@@ -33,7 +33,7 @@ export const Secondproject = () => {
           </div>
 
           {/* Right Side: Text and Tags */}
-          <div className="md:w-2/4 text-white mt-4 md:mt-0">
+          <div className="md:w-2/4 text-[#3e606f] mt-4 md:mt-0">
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
               Radish Grill & Cafe
             </h2>

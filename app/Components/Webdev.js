@@ -17,12 +17,12 @@ export const WebDevelopment = () => {
   return (
     <>
       <section className="bg-white py-12 px-8">
-        <div className="max-w-7xl mx-auto text-start">
+        <div className="max-w-9xl mx-auto text-start">
           <hr className="bg-[#21212155] border-0 w-auto h-[1px] mb-8" />
-          <h2 className="text-2xl md:text-6xl font-bold text-gray-800 mb-8">
+          <h2 className="text-2xl md:text-6xl font-bold text-black mb-8">
             Featured Works.
           </h2>
-          <hr className="origin-top-left bg-[#21212155] border-0 w-auto h-[1px] mb-8" />
+          <hr className="origin-top-left bg-[#f8e7e7] border-0 w-auto h-[1px] mb-8" />
           <p className="text-xl md:text-4xl text-black">
             Explore my featured projects that showcase my skills and experience in creating impactful digital solutions.
             From complex data visualizations to innovative web applications, these projects highlight my ability to
@@ -38,7 +38,7 @@ export const WebDevelopment = () => {
           y, // Apply scroll effect on Y position
         }}
       >
-        <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#0d3b66] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
+        <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#3e606f] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
           {/* Left Side: Image */}
           <div className="py-4 md:py-2 relative md:w-2/4 flex flex-col justify-center items-center">
             <motion.img
@@ -52,7 +52,7 @@ export const WebDevelopment = () => {
           </div>
 
           {/* Right Side: Text and Tags */}
-          <div className="md:w-2/4 text-white mt-4 md:mt-0">
+          <div className="md:w-2/4 text-[#91aa9d] mt-4 md:mt-0">
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
               Zahrath al reef
             </h2>

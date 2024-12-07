@@ -56,7 +56,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="relative">
+    <div className="relative text-black">
       <nav className="fixed top-0 left-0 z-50 flex justify-between items-center py-4 md:py-8 px-4 sm:px-8 md:px-16 w-full ">
         {/* Logo */}
         <motion.div variants={textVariants} initial='hidden' animate='visible' className="text-3xl font-bold">AJINAS</motion.div>
@@ -82,7 +82,7 @@ const Navbar = () => {
         </div>
 
         {/* Menu Items for Large Screens */}
-        <motion.ul variants={textVariants} initial='hidden' animate='visible' className="hidden sm:flex space-x-6 text-gray-800 font-medium text-lg">
+        <motion.ul variants={textVariants} initial='hidden' animate='visible' className="hidden sm:flex space-x-6 text-black font-medium text-lg">
           <li>
             <FlipText text="Home" />
           </li>

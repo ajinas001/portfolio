@@ -63,7 +63,7 @@ export const Hero = () => {
   return (
     <motion.section
       ref={targetRef}
-      className="relative h-screen bg-fixed bg-center"
+      className="relative h-screen bg-fixed bg-center bg-white text-black"
       style={{
         backgroundImage: "url('/images/sample11.jpg')",
         backgroundSize: "cover",
@@ -73,28 +73,39 @@ export const Hero = () => {
         height: "100vh",
       }}
     >
+
       <motion.div
         style={{
           opacity,
           scale,
-          filter: isVisible ? "blur(0px)" : "blur(3px)",
+          filter: isVisible ? "blur(0px)" : "blur(2px)",
         }}
-        className="fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-start ms-4 md:ms-8 lg:ms-20 z-10"
+        className="fixed top-0 mt-8 left-0 w-full h-screen flex flex-col justify-center items-start ms-2 md:ms-8 lg:ms-20 z-10"
       >
-        <motion.h1
-          className="text-3xl md:text-5xl lg:text-7xl font-light text-start leading-tight"
-          variants={textContainerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <div className="flex flex-col flex-wrap">
-            <motion.div variants={textVariants}>Concept.Craft.Code.</motion.div>
-            <motion.div variants={textVariants}>Conquer.Repeat.</motion.div>
-          </div>
-        </motion.h1>
+       <motion.h1
+  className="text-5xl px-2 font-extrabold md:text-5xl lg:text-7xl justify-start items-start text-start md:text-start leading-tight"
+  variants={textContainerVariants}
+  initial="hidden"
+  animate="visible"
+>
+  <div className="text-start md:text-start">
+    {/* Single line for small screens */}
+    <motion.div className="block lg:hidden" variants={textVariants}>
+      Concept. Craft. Code. Conquer. Repeat.
+    </motion.div>
+    {/* Double lines for large screens */}
+    <motion.div className="hidden lg:block" variants={textVariants}>
+      Concept.Craft.Code.
+    </motion.div>
+    <motion.div className="hidden lg:block" variants={textVariants}>
+      Conquer.Repeat.
+    </motion.div>
+  </div>
+</motion.h1>
+
 
         <motion.p
-          className="text-gray-500 text-xs md:text-sm p-5 lg:text-base font-bold"
+          className="hidden md:block text-black text-s md:text-sm text-center md:text-start p-5 mt-4 md:mt-4 lg:text-base font-bold"
           variants={textVariants}
           initial="hidden"
           animate="visible"
@@ -107,14 +118,17 @@ export const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          <motion.button
-            className="fixed left-4 md:left-6 lg:left-8 bottom-4 md:bottom-6 lg:bottom-8 text-green-500 px-3 py-2 md:px-4 md:py-2 lg:px-6 lg:py-3 font-extrabold border-2 border-gray-500 rounded-full text-xs md:text-sm lg:text-base"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            variants={textVariants}
-          >
-            Open to freelance
-          </motion.button>
+         <motion.div className="relative flex flex-col items-center justify-center mt-12 sm:mt-8">
+  <motion.button
+    className="text-green-500 px-3 py-2 md:px-4 md:py-2 lg:px-6 lg:py-3 font-extrabold border-2 border-gray-500 rounded-full text-xs md:text-sm lg:text-base"
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+    variants={textVariants}
+  >
+    Open to freelance
+  </motion.button>
+</motion.div>
+
         </motion.footer>
       </motion.div>
 

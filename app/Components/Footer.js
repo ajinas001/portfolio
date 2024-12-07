@@ -2,25 +2,25 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="flex sticky z-50 flex-col items-center justify-between h-screen px-6 py-12 text-center bg-white">
+    <div className="flex sticky z-50 flex-col items-center justify-between h-screen px-6 py-12 text-center bg-white text-black">
       <div className="flex flex-col items-center justify-center flex-grow">
         {/* <hr className="origin-top-left bg-[#21212155] border-2 w-auto h-[1px] mb-8" /> */}
-        <hr className="absolute top-0 left-0 w-full border-t-2 border-gray-300" />
-        <h1 className="text-6xl md:text-8xl font-bold leading-tight text-gray-900">
+        <hr className="absolute top-0 left-0 w-full border-t-2 border-black" />
+        <h1 className="text-4xl   md:text-8xl font-bold  text-black">
           Let&apos;s chat.
         </h1>
-        <p className="mt-4 text-lg md:text-2xl text-gray-600">
+        <p className="mt-4 text-lg md:text-2xl text-black">
           Unleashing brand potential through creative design and innovation.
         </p>
-        <button className="relative px-6 py-3 mt-8 text-sm font-semibold text-gray-900 border border-black rounded-full group hover:bg-gray-900 hover:text-white">
+        <button className="relative px-6 py-3 mt-8 text-sm font-semibold text-black border border-black rounded-full group hover:bg-gray-900 hover:text-white">
           <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            
+
           </span>
           GET IN TOUCH
         </button>
       </div>
       <footer className="w-full mt-12 text-gray-600">
-        <div className="flex justify-between items-center border-t border-gray-300 pt-6">
+        <div className="flex flex-col sm:flex-row justify-between items-center border-t border-black pt-6 space-y-4 sm:space-y-0">
           <p className="text-sm font-medium">
             Ajinas<span className="text-black">.</span>
           </p>
@@ -59,6 +59,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+
     </div>
   );
 };

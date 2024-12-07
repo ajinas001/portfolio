@@ -3,19 +3,6 @@
 import { useTransform, useScroll, motion } from 'framer-motion';
 import { useRef } from 'react';
 
-// Custom Hook for Word Transformations
-const useWordTransforms = (length, scrollYProgress) => {
-  return Array.from({ length }).map((_, i) => {
-    const start = i / length;
-    const end = start + 1 / length;
-
-    // const wordOpacity = useTransform(scrollYProgress, [start, end], [0, 1]);
-    // const wordTranslateY = useTransform(scrollYProgress, [start, end], [30, 0]);
-
-    return {  };
-  });
-};
-
 export const About = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -43,20 +30,17 @@ export const About = () => {
   // Split the paragraph into words
   const words = paragraph.split(' ');
 
-  // Precompute transformations for all words
-  const wordTransforms = useWordTransforms(words.length, scrollYProgress);
-
   return (
     <div
-      className="relative min-h-screen px-8 py-16 flex flex-col justify-center items-center"
+      className="relative min-h-screen px-8 py-16 flex flex-col justify-center items-center bg-white text-black"
       ref={containerRef}
     >
       {/* Horizontal Line */}
-      <hr className="absolute top-0 left-0 w-full border-t-2 border-gray-300" />
+      <hr className="absolute top-0 left-0 w-full border-t-2 border-black" />
 
       {/* Subheading */}
       <motion.p
-        className="text-lg text-gray-700 mb-4"
+        className="text-sm  text-gray-700 mb-4"
         style={{
           opacity: subheadingOpacity,
           y: subheadingY,
@@ -68,7 +52,7 @@ export const About = () => {
 
       {/* Main Heading */}
       <motion.h1
-        className="text-4xl md:text-7xl font-bold mb-4"
+        className="text-3xl md:text-7xl font-bold mb-4"
         style={{
           opacity: headingOpacity,
           y: headingY,
@@ -79,14 +63,12 @@ export const About = () => {
       </motion.h1>
 
       {/* Paragraph */}
-      <p className="text-xl md:text-4xl font-light leading-relaxed max-w-7xl">
+      <p className="text-xl md:text-4xl font-light leading-relaxed max-w-9xl">
         {words.map((word, i) => (
           <motion.span
             key={i}
-            className="inline-block relative mr-2 mt-2"
+            className="inline-block relative mt-2 mr-2"  // Added margin-right for spacing
             style={{
-              opacity: wordTransforms[i].wordOpacity,
-              y: wordTransforms[i].wordTranslateY, // Reveal effect for each word
               transition: {
                 duration: 2, // Slower reveal for words
                 ease: 'easeOut',
@@ -107,7 +89,7 @@ export const About = () => {
         }}
       >
         <button className="relative px-6 py-3 mt-8 text-sm font-semibold text-gray-900 border border-black rounded-full group hover:bg-gray-900 hover:text-white">
-          MORE ABOUT ME
+          RESUME
         </button>
       </motion.div>
     </div>

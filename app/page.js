@@ -32,7 +32,7 @@ export default function Page() {
   }, []);
 
   return (
-    <main className="scrollbar-hide">
+    <main className="scrollbar-hide bg-white">
       <MouseBubble/>
       <Navbar />
       <Hero />

@@ -16,23 +16,22 @@ const Swiper = () => {
                         y: 0,
                         transition: {
                             duration: 1.2,
-                            ease: "easeInOut", // Smooth easing for entry
+                            ease: "easeInOut",
                             when: "beforeChildren",
-                            staggerChildren: 0.25, // Adjust for tighter stagger effect
+                            staggerChildren: 0.25,
                         },
                     },
                 }}
             >
                 <motion.div
-                    className="max-w-7xl mx-0 md:mx-4 text-start"
+                    className="max-w-9xl mx-0 md:mx-4 text-start"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
                         duration: 1.0,
-                        ease: "easeInOut", // Smooth transition
+                        ease: "easeInOut",
                     }}
                 >
-                    {/* Heading */}
                     <motion.h1
                         className="text-3xl md:text-6xl font-bold text-black"
                         variants={{
@@ -40,14 +39,12 @@ const Swiper = () => {
                             visible: { opacity: 1, x: 0, scale: 1 },
                         }}
                         transition={{
-                            duration: 1.4, // Slower reveal for heading
+                            duration: 1.4,
                             ease: "easeInOut",
                         }}
                     >
                         What I Offer.
                     </motion.h1>
-
-                    {/* Description */}
                     <motion.p
                         className="mt-6 text-sm md:text-xl text-black leading-relaxed"
                         variants={{
@@ -55,9 +52,9 @@ const Swiper = () => {
                             visible: { opacity: 1, y: 0, rotate: 0 },
                         }}
                         transition={{
-                            duration: 1, // Smooth fade-in
+                            duration: 1,
                             ease: "easeInOut",
-                            delay: 0.6, // Extra delay for staggered feel
+                            delay: 0.6,
                         }}
                     >
                         My services go beyond just solutions — they’re the key to transforming your digital presence
@@ -82,7 +79,6 @@ const CustomSection = () => {
         <section ref={targetRef} className="sticky z-40 h-[300vh] md:h-[] bg-white">
             <div className="sticky top-[8%] flex h-screen items-center overflow-hidden">
                 <motion.div style={{ x }} className="flex flex-row space-x-2">
-                    {/* Section 1: Web Development */}
                     <SectionContent
                         number="[01]"
                         title="Web Development"
@@ -90,34 +86,29 @@ const CustomSection = () => {
                         features={[
                             "Custom Website Development",
                             "Responsive Design",
-                            "E-commerce Integration",
-                           
+                            "E-Commerce Inetgration",
                         ]}
                     />
 
-                    {/* Section 2: App Development */}
                     <SectionContent
                         number="[02]"
-                        title="App Development"
-                        description="Transform your ideas into powerful mobile applications. From intuitive design to robust functionality, I create apps that enhance user engagement and streamline your business processes."
+                        title="Front-End Development"
+                        description="Design intuitive, responsive, and engaging user interfaces. I specialize in creating pixel-perfect designs that bring your brand to life, ensuring seamless user experiences across all devices."
                         features={[
-                            "Cross-platform Apps",
-                            "User-Friendly UI/UX",
-                           
-                            "In-app Purchases",
+                            "Responsive UI/UX Design",
+                            "Interactive Animations",
+                            "Cross-Browser Compatibility",
                         ]}
                     />
 
-                    {/* Section 3: Digital Marketing */}
                     <SectionContent
                         number="[03]"
-                        title="Digital Marketing"
-                        description="Drive your business forward with cutting-edge digital marketing strategies. I help brands grow through data-driven campaigns, SEO, and social media management."
+                        title="Back-End Development"
+                        description="Build secure, scalable, and robust server-side solutions. I develop back-end systems that integrate seamlessly with front-end applications, ensuring optimal performance and data management."
                         features={[
-                            "Social Media Management",
-                            "Content Marketing",
-                         
-                            "Analytics and Optimization",
+                            "API Development",
+                            "Database Management",
+                            "Scalable Server Architecture",
                         ]}
                     />
                 </motion.div>
@@ -128,28 +119,21 @@ const CustomSection = () => {
 
 const SectionContent = ({ number, title, description, features }) => (
     <div className="px-2 md:px-4 lg:px-8 py-8 min-w-[100vw] md:min-w-[93vw]">
-        {/* Horizontal Line */}
         <hr className="origin-top-left bg-[rgba(33,33,33,0.33)] border-0 h-[2px] mt-2" />
-
-        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-6 md:mt-8">
             <div className="flex items-center">
                 <div className="text-3xl font-bold text-black md:text-5xl">{number}</div>
             </div>
             <h2 className="text-2xl font-bold text-black mt-2 md:mt-0 md:text-4xl">{title}</h2>
         </div>
-
-        {/* Description */}
         <p className="mt-4 md:mt-4 text-black text-sm leading-relaxed md:text-xl">
             {description}
         </p>
-
-        {/* List of Features */}
         <ul className="mt-4 md:mt-6 space-y-2 md:space-y-8">
             {features.map((feature, index) => (
                 <li
                     key={index}
-                    className="flex flex-col md:flex-row justify-between items-start md:items-center border-b pb-4 md:pb-2 text-lg"
+                    className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-black pb-4 md:pb-2 text-lg"
                 >
                     <span className="text-black">{`0${index + 1}`}</span>
                     <span className="font-semibold text-black mt-2 md:mt-0">{feature}</span>
