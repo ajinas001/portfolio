@@ -40,13 +40,13 @@ const About = () => {
 
         {/* Paragraph */}
         <p className="text-base md:text-3xl font-light leading-relaxed max-w-9xl text-start mt-6">
-          I'm a passionate full-stack developer with a strong foundation in both frontend and backend technologies. 
+          I&apos;m a passionate full-stack developer with a strong foundation in both frontend and backend technologies. 
           I excel at creating dynamic and efficient web applications, prioritizing functionality, user experience, and code quality. 
-          Currently, I'm expanding my backend expertise, focusing on microservice architecture to build highly scalable and modular systems.
+          Currently, I&apos;m expanding my backend expertise, focusing on microservice architecture to build highly scalable and modular systems.
         </p>
 
         <p className='text-base md:text-3xl font-light leading-relaxed max-w-9xl text-start mt-8'>
-          I'm a constant learner, staying abreast of the latest trends and best practices. 
+          I&apos;m a constant learner, staying abreast of the latest trends and best practices. 
           I thrive in collaborative and independent environments, tackling complex challenges with a problem-solving mindset. 
           My dedication to continuous learning equips me to deliver exceptional results for diverse projects and contribute to the development of cutting-edge web applications.
         </p>
