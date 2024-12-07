@@ -54,7 +54,7 @@ export const About = () => {
         A software developer with a background in Computer Application. I enjoy crafting elegant
         solutions to complex problems and am always exploring new technologies. When I'm not coding, I love
         diving into tech trends and collaborating on exciting projects. Feel free to browse my work or get in
-        touch—I’d love to connect!
+        touch—I&apos;d love to connect!
       </p>
 
       {/* More About Me Button */}
