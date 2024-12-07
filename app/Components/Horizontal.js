@@ -82,7 +82,7 @@ const CustomSection = () => {
                     <SectionContent
                         number="[01]"
                         title="Web Development"
-                        description="A website developed to captivate and convert can elevate your brand to new heights. My custom-coded sites are meticulously crafted to reflect your unique identity, delivering seamless experiences with a focus on animation—keeping your audience engaged and returning."
+                        description="A website developed to captivate and convert can elevate your brand to new heights. My custom-coded sites are crafted to reflect your unique identity, delivering seamless experiences."
                         features={[
                             "Custom Website Development",
                             "Responsive Design",
@@ -133,7 +133,7 @@ const SectionContent = ({ number, title, description, features }) => (
             {features.map((feature, index) => (
                 <li
                     key={index}
-                    className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-black pb-4 md:pb-2 text-lg"
+                    className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-black pb-4 md:pb-6 text-lg"
                 >
                     <span className="text-black">{`0${index + 1}`}</span>
                     <span className="font-semibold text-black mt-2 md:mt-0">{feature}</span>

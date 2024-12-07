@@ -1,9 +1,11 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false); // For toggling the mobile menu
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const DURATION = 0.25;
   const STAGGER = 0.025;
@@ -13,29 +15,26 @@ const Navbar = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.8, ease: 'easeOut' },
     },
   };
-
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
     document.documentElement.classList.toggle('dark', !isDarkMode);
   };
 
-
   const createMotionSpans = (text, direction) =>
     text.split('').map((char, i) => (
       <motion.span
         key={i}
         variants={{
-          initial: { y: direction === "up" ? 0 : "100%" },
-          hovered: { y: direction === "up" ? "-100%" : 0 },
+          initial: { y: direction === 'up' ? 0 : '100%' },
+          hovered: { y: direction === 'up' ? '-100%' : 0 },
         }}
         transition={{
           duration: DURATION,
-          ease: "easeInOut",
+          ease: 'easeInOut',
           delay: STAGGER * i,
         }}
         className="inline-block"
@@ -50,20 +49,41 @@ const Navbar = () => {
       whileHover="hovered"
       className="relative block overflow-hidden whitespace-nowrap"
     >
-      <div>{createMotionSpans(text, "up")}</div>
-      <div className="absolute inset-0">{createMotionSpans(text, "down")}</div>
+      <div>{createMotionSpans(text, 'up')}</div>
+      <div className="absolute inset-0">{createMotionSpans(text, 'down')}</div>
     </motion.div>
   );
 
+  const menuItems = [
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/About' },
+    { label: 'Works', path: '/Works' },
+    { label: 'Contact', path: '/Contact' },
+  ];
+
   return (
     <div className="relative text-black">
-      <nav className="fixed top-0 left-0 z-50 flex justify-between items-center py-4 md:py-8 px-4 sm:px-8 md:px-16 w-full ">
+      <nav className="fixed top-0 left-0 z-50 flex justify-between items-center py-4 md:py-8 px-4 sm:px-8 md:px-16 w-full bg-white">
         {/* Logo */}
-        <motion.div variants={textVariants} initial='hidden' animate='visible' className="text-3xl font-bold">AJINAS</motion.div>
+        <Link href="/">
+          <motion.div
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-3xl font-bold cursor-pointer"
+          >
+            AJINAS
+          </motion.div>
+        </Link>
+
 
         {/* Mobile Menu Toggle Button */}
         <div className="sm:hidden">
-          <button className="text-gray-800" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            className="text-gray-800"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -82,32 +102,34 @@ const Navbar = () => {
         </div>
 
         {/* Menu Items for Large Screens */}
-        <motion.ul variants={textVariants} initial='hidden' animate='visible' className="hidden sm:flex space-x-6 text-black font-medium text-lg">
-          <li>
-            <FlipText text="Home" />
-          </li>
-          <li>
-            <FlipText text="About" />
-          </li>
-          <li>
-            <FlipText text="Works" />
-          </li>
-          <li>
-            <FlipText text="Contact" />
-          </li>
+        <motion.ul
+          variants={textVariants}
+          initial="hidden"
+          animate="visible"
+          className="hidden sm:flex space-x-6 text-black font-medium text-lg"
+        >
+          {menuItems.map((item, index) => (
+            <li key={index}>
+              <Link href={item.path}>
+                <FlipText text={item.label} />
+              </Link>
+            </li>
+          ))}
           {/* Dark Mode Toggle */}
-          <li>
-          <button
-                onClick={toggleTheme}
-                className={`w-12 h-5 rounded-full flex items-center px-1 transition-colors ${isDarkMode ? 'bg-black' : 'bg-gray-200'
+          {/* <li>
+            <button
+              onClick={toggleTheme}
+              className={`w-12 h-5 rounded-full flex items-center px-1 transition-colors ${isDarkMode ? 'bg-black' : 'bg-gray-200'
+                }`}
+            >
+              <div
+                className={`w-5 h-5 rounded-full transition-transform transform ${isDarkMode
+                    ? 'translate-x-6 bg-white'
+                    : 'translate-x-0 bg-black'
                   }`}
-              >
-                <div
-                  className={`w-5 h-5 rounded-full transition-transform transform ${isDarkMode ? 'translate-x-6 bg-white' : 'translate-x-0 bg-black'
-                    }`}
-                ></div>
-              </button>
-          </li>
+              ></div>
+            </button>
+          </li> */}
         </motion.ul>
       </nav>
 
@@ -115,42 +137,26 @@ const Navbar = () => {
       {isOpen && (
         <div className="sm:hidden absolute top-0 left-0 w-full bg-white shadow-md z-40">
           <ul className="flex flex-col space-y-4 text-gray-800 font-medium text-lg py-4 px-8 mt-12">
-            <li>
-              <FlipText text="Home" />
-            </li>
-            <li>
-              <FlipText text="About" />
-            </li>
-            <li>
-              <FlipText text="Works" />
-            </li>
-            <li>
-              <FlipText text="Contact" />
-            </li>
+            {menuItems.map((item, index) => (
+              <li key={index}>
+                <Link href={item.path}>
+                  <FlipText text={item.label} />
+                </Link>
+              </li>
+            ))}
             <li>
               <button
                 onClick={toggleTheme}
-                className={`w-12 h-6 rounded-full flex items-center px-1 transition-colors ${isDarkMode ? 'bg-black' : 'bg-gray-200'
+                className={`w-12 h-5 rounded-full flex items-center px-1 transition-colors ${isDarkMode ? 'bg-black' : 'bg-gray-200'
                   }`}
               >
                 <div
-                  className={`w-5 h-5 rounded-full transition-transform transform ${isDarkMode ? 'translate-x-6 bg-white' : 'translate-x-0 bg-black'
+                  className={`w-5 h-5 rounded-full transition-transform transform ${isDarkMode
+                      ? 'translate-x-6 bg-white'
+                      : 'translate-x-0 bg-black'
                     }`}
                 ></div>
               </button>
-              <>
-
-                <label className="relative inline-flex items-center cursor-pointer">
-                  <input className="sr-only peer" defaultValue="" type="checkbox" />
-                  <div className="peer ring-2 ring-gray-500 bg-gradient-to-r from-rose-400 to-red-900 rounded-full outline-none duration-500
-                   after:duration-300 w-10 h-5  shadow-inner peer-checked:bg-gradient-to-r peer-checked:from-emerald-500
-                    peer-checked:to-emerald-900 shadow-gray-900 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gray-500 
-                     after:content-[''] after:rounded-full after:absolute after:outline-none after:h-12 after:w-12 after:bg-gray-900
-                      after:-top-2 after:-left-2 after:flex after:justify-center after:items-center after:border-4 after:border-gray-500
-                        peer-checked:after:translate-x-14"></div>
-                </label>
-              </>
-
             </li>
           </ul>
         </div>

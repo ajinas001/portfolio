@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Footer = () => {
@@ -12,12 +13,14 @@ const Footer = () => {
         <p className="mt-4 text-lg md:text-2xl text-black">
           Unleashing brand potential through creative design and innovation.
         </p>
+        <Link href={'/Contact'}>
         <button className="relative px-6 py-3 mt-8 text-sm font-semibold text-black border border-black rounded-full group hover:bg-gray-900 hover:text-white">
           <span className="absolute inset-y-0 left-0 flex items-center pl-4">
 
           </span>
           GET IN TOUCH
         </button>
+        </Link>
       </div>
       <footer className="w-full mt-12 text-gray-600">
         <div className="flex flex-col sm:flex-row justify-between items-center border-t border-black pt-6 space-y-4 sm:space-y-0">

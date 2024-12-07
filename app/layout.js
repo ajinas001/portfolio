@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${elronMono.variable} antialiased`}>
+      <body className={`${elronMono.variable} antialiased bg-white`}>
         {children}
       </body>
     </html>
