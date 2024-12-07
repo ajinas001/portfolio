@@ -21,32 +21,37 @@ export const Hospital = () => {
                 y, // Apply scroll effect on Y position
             }}
         >
-              <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#91aa9d] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
-          {/* Left Side: Image */}
-          <div className="py-4 md:py-2 relative md:w-2/4 flex flex-col justify-center items-center">
-            <motion.img
-              src="/images/hosp.png"
-              alt="Website Showcase"
-              className="w-full md:w-4/5 rounded-lg overflow-hidden"
-             
-            />
-          </div>
+            <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#91aa9d] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
+                {/* Left Side: Image */}
+                <div className="py-4 md:py-2 relative md:w-2/4 flex flex-col justify-center items-center">
+                    <motion.img
+                        src="/images/hosp.png"
+                        alt="Website Showcase"
+                        className="w-full md:w-4/5 rounded-lg overflow-hidden"
 
-          {/* Right Side: Text and Tags */}
-          <div className="md:w-2/4 text-white mt-4 md:mt-0">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Hospital token booking
-            </h2>
-            <div className="flex flex-wrap gap-2 md:gap-4 mb-4">
-              {/* Tags */}
-              {/* Add tags here if needed */}
-            </div>
-            <p className="text-sm md:text-lg leading-relaxed mb-6">
-              We develop custom websites that stand out to international standards, ensuring quality and performance.
-              Using the latest technologies, we create websites that are visually appealing and highly functional.
-              Bring your online presence to life with our customized development.
-            </p>
-            {/* <a
+                    />
+                </div>
+
+                {/* Right Side: Text and Tags */}
+                <div className="md:w-2/4 text-white mt-4 md:mt-0">
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
+                        Hospital token booking
+                    </h2>
+                    <div className="flex flex-wrap gap-2 md:gap-4 mb-4">
+                        {/* Tags */}
+                        {/* Add tags here if needed */}
+                    </div>
+                    <p className="text-sm md:text-lg leading-relaxed mb-6">
+                        Developed Meddical, a comprehensive hospital management web application using a Node.js and Express.js backend,
+                        React.js frontend, and MongoDB database, designed to streamline patient and doctor interactions.
+                    
+                        ◦ Enabled patients to book appointments, make payments, and monitor their position in the queue through a live token
+                        status feature, enhancing the overall patient experience.
+                        ◦ Integrated Razorpay for seamless online payments, offering multiple payment options to patients for a convenient
+                        transaction process.
+                     
+                    </p>
+                    {/* <a
               href="/website"
               className="bg-white text-purple-700 px-6 py-3 rounded-full flex items-center gap-2"
             >
@@ -62,8 +67,8 @@ export const Hospital = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
               </svg>
             </a> */}
-          </div>
-        </section>
+                </div>
+            </section>
 
 
         </motion.div>

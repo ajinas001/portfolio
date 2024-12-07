@@ -61,9 +61,12 @@ export const Zahrat = () => {
               {/* Add tags here if needed */}
             </div>
             <p className="text-sm md:text-lg leading-relaxed mb-6">
-              We develop custom websites that stand out to international standards, ensuring quality and performance.
-              Using the latest technologies, we create websites that are visually appealing and highly functional.
-              Bring your online presence to life with our customized development.
+              Developed a robust website for an electrical and sanitaryware shop, enabling users to browse an extensive
+              product catalog.
+               Implemented features allowing customers to connect with the shop and submit inquiries seamlessly through the
+              platform.
+               Designed the interface to display comprehensive shop details, including location, operating hours, and contact
+              information, ensuring a user-friendly experience.
             </p>
             {/* <a
               href="/website"
