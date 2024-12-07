@@ -55,7 +55,7 @@ import Navbar from '../Components/Navbar';
       {/* Paragraph */}
       <p className="text-base md:text-3xl font-light leading-relaxed max-w-9xl text-start">
         A software developer with a background in Computer Science and Engineering. I enjoy crafting elegant
-        solutions to complex problems and am always exploring new technologies. When I'm not coding, I love
+        solutions to complex problems and am always exploring new technologies. When I&apos;m not coding, I love
         diving into tech trends and collaborating on exciting projects. Feel free to browse my work or get in
         touch—I&apos;d love to connect!
       </p>
