@@ -21,7 +21,7 @@ export const About = () => {
 
   return (
     <div
-      className="relative min-h-screen px-8 py-16 flex flex-col justify-center items-center bg-white text-black"
+      className="relative h-auto px-8 py-16 flex flex-col justify-center items-center bg-white text-black"
       ref={containerRef}
     >
       {/* Horizontal Line */}

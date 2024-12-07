@@ -37,7 +37,7 @@ const Contact = () => {
           <div className="flex justify-between items-center border-b border-black pb-6">
             <span className="font-semibold text-gray-700">LinkedIn</span>
             <a
-              href="https://linkedin.com/in/munavvarsinan"
+              href="https://www.linkedin.com/in/ajinas-p/"
               className="text-black hover:underline"
               target="_blank"
               rel="noopener noreferrer"
@@ -48,7 +48,7 @@ const Contact = () => {
           <div className="flex justify-between items-center border-b border-black pb-6">
             <span className="font-semibold text-black">GitHub</span>
             <a
-              href="https://github.com/MunavvarSinan"
+              href=" https://github.com/ajinas001"
               className="text-black hover:underline"
               target="_blank"
               rel="noopener noreferrer"
