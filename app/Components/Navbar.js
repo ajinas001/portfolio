@@ -1,58 +1,25 @@
 'use client';
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false); // For toggling the mobile menu
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const DURATION = 0.25;
-  const STAGGER = 0.025;
+  const menuVariants = {
+    hidden: { x: '100%', opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeInOut' } },
+    exit: { x: '100%', opacity: 0, transition: { duration: 0.6, ease: 'easeInOut' } },
+  };
 
-  const textVariants = {
-    hidden: { opacity: 0, y: -30 },
-    visible: {
+  const menuItemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
-    },
+      transition: { delay: i * 0.1, duration: 0.6, ease: 'easeOut' },
+    }),
   };
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark', !isDarkMode);
-  };
-
-  const createMotionSpans = (text, direction) =>
-    text.split('').map((char, i) => (
-      <motion.span
-        key={i}
-        variants={{
-          initial: { y: direction === 'up' ? 0 : '100%' },
-          hovered: { y: direction === 'up' ? '-100%' : 0 },
-        }}
-        transition={{
-          duration: DURATION,
-          ease: 'easeInOut',
-          delay: STAGGER * i,
-        }}
-        className="inline-block"
-      >
-        {char}
-      </motion.span>
-    ));
-
-  const FlipText = ({ text }) => (
-    <motion.div
-      initial="initial"
-      whileHover="hovered"
-      className="relative block overflow-hidden whitespace-nowrap"
-    >
-      <div>{createMotionSpans(text, 'up')}</div>
-      <div className="absolute inset-0">{createMotionSpans(text, 'down')}</div>
-    </motion.div>
-  );
 
   const menuItems = [
     { label: 'Home', path: '/' },
@@ -63,104 +30,112 @@ const Navbar = () => {
 
   return (
     <div className="relative text-black">
-      <nav className="fixed top-0 left-0 z-50 flex justify-between items-center py-4 md:py-8 px-4 sm:px-8 md:px-16 w-full bg-white">
+      <nav className="fixed top-0 left-0   z-50 flex justify-between items-center py-4 px-4 sm:px-4 md:py-8 md:px-12 w-full bg-white">
         {/* Logo */}
         <Link href="/">
           <motion.div
-            variants={textVariants}
-            initial="hidden"
-            animate="visible"
             className="text-3xl font-bold cursor-pointer"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
           >
             AJINAS
           </motion.div>
         </Link>
 
-
         {/* Mobile Menu Toggle Button */}
-        <div className="sm:hidden">
-          <button
-            className="text-gray-800"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+        <button
+          className="sm:hidden text-gray-800"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-6 h-6"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </div>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
 
         {/* Menu Items for Large Screens */}
-        <motion.ul
-          variants={textVariants}
-          initial="hidden"
-          animate="visible"
-          className="hidden sm:flex space-x-6 text-black font-medium text-lg"
-        >
+        <ul className="hidden sm:flex space-x-6 text-gray-800 font-medium text-lg">
           {menuItems.map((item, index) => (
             <li key={index}>
               <Link href={item.path}>
-                <FlipText text={item.label} />
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  className="cursor-pointer"
+                >
+                  {item.label}
+                </motion.div>
               </Link>
             </li>
           ))}
-          {/* Dark Mode Toggle */}
-          {/* <li>
-            <button
-              onClick={toggleTheme}
-              className={`w-12 h-5 rounded-full flex items-center px-1 transition-colors ${isDarkMode ? 'bg-black' : 'bg-gray-200'
-                }`}
-            >
-              <div
-                className={`w-5 h-5 rounded-full transition-transform transform ${isDarkMode
-                    ? 'translate-x-6 bg-white'
-                    : 'translate-x-0 bg-black'
-                  }`}
-              ></div>
-            </button>
-          </li> */}
-        </motion.ul>
+        </ul>
       </nav>
 
-      {/* Mobile Menu Items (Toggleable) */}
-      {isOpen && (
-        <div className="sm:hidden absolute top-0 left-0 w-full bg-white shadow-md z-40">
-          <ul className="flex flex-col space-y-4 text-gray-800 font-medium text-lg py-4 px-8 mt-12">
-            {menuItems.map((item, index) => (
-              <li key={index}>
-                <Link href={item.path}>
-                  <FlipText text={item.label} />
-                </Link>
-              </li>
-            ))}
-            <li>
-              <button
-                onClick={toggleTheme}
-                className={`w-12 h-5 rounded-full flex items-center px-1 transition-colors ${isDarkMode ? 'bg-black' : 'bg-gray-200'
-                  }`}
+      {/* Full-Screen Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            variants={menuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="fixed inset-0 z-40 bg-white flex flex-col justify-center items-center space-y-8"
+          >
+            <button
+              className="absolute top-6 right-6 text-gray-800"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-8 h-8"
               >
-                <div
-                  className={`w-5 h-5 rounded-full transition-transform transform ${isDarkMode
-                      ? 'translate-x-6 bg-white'
-                      : 'translate-x-0 bg-black'
-                    }`}
-                ></div>
-              </button>
-            </li>
-          </ul>
-        </div>
-      )}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            <ul className="flex flex-col items-center text-gray-800 font-semibold text-3xl ">
+              {menuItems.map((item, index) => (
+                <motion.li
+                  key={index}
+                  variants={menuItemVariants}
+                  custom={index}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <Link href={item.path}>
+                    <motion.div
+                      whileHover={{ scale: 1.2, color: '#6366F1' }}
+                      className="cursor-pointer "
+                    >
+                      {item.label}
+                    </motion.div>
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
