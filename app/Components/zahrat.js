@@ -10,11 +10,11 @@ export const Zahrat = () => {
   // Hook to get scroll progress
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start start', 'end start'], // Start when the section starts and end when it leaves the viewport
+    offset: ['start end', 'start start'], // Start when the section starts and end when it leaves the viewport
   });
 
   // Transform values
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]); // Image zoom-out from 1 to 0.8
+  const scale = useTransform(scrollYProgress, [0, 1], [1.5, 1]); // Image zoom-out from 1 to 0.8
   const y = useTransform(scrollYProgress, [0, 1], [0, 50]); // Slight vertical movement
 
   return (
@@ -38,7 +38,7 @@ export const Zahrat = () => {
       <motion.div
         ref={ref}
         className="sticky top-[11%] md:top-[15%] z-20 flex flex-col lg:flex-row items-start gap-10 bg-white px-6 border-b border-gray-300"
-        style={{ y }}
+        // style={{ y }}
       >
         <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#3e606f] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
           {/* Left Side: Image */}
