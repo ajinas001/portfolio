@@ -41,8 +41,8 @@ export default function Page() {
         <About />
         <Zahrat />
         <Radish/>
-        <Ecom/>
-        <Hospital/>
+        {/* <Ecom/> */}
+        {/* <Hospital/> */}
         {/* <UIUXDesign/> */}
         <Swiper/>
        

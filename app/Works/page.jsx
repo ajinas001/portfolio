@@ -3,6 +3,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import Navbar from '../Components/Navbar';
+import { Ecom } from '../Components/ecom';
+import { Hospital } from '../Components/Hospital';
 
 const Works = () => {
   const ref = useRef(null);
@@ -89,7 +91,9 @@ const Works = () => {
           </section>
 
         </div>
-        <footer className="w-full mt-12 text-gray-600">
+        <Ecom/>
+        <Hospital/>
+        {/* <footer className="w-full mt-12 text-gray-600">
           <div className="flex flex-col sm:flex-row justify-between items-center border-t border-black pt-6 space-y-4 sm:space-y-0">
             <p className="text-sm font-medium">
               Ajinas<span className="text-black">.</span>
@@ -128,7 +132,7 @@ const Works = () => {
               </a>
             </div>
           </div>
-        </footer>
+        </footer> */}
 
 
       </div>

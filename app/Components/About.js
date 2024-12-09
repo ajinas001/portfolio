@@ -50,7 +50,7 @@ export const About = () => {
       </motion.h1>
 
       {/* Paragraph */}
-      <p className="text-base md:text-3xl font-light leading-relaxed max-w-9xl text-start">
+      <p className="text-base md:text-3xl font-light leading-relaxed max-w-9xl text-start  md:p-4">
         A software developer with a background in Computer Application. I enjoy crafting elegant
         solutions to complex problems and am always exploring new technologies. When I&apos;m not coding, I love
         diving into tech trends and collaborating on exciting projects. Feel free to browse my work or get in

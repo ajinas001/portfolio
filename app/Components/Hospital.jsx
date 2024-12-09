@@ -16,7 +16,8 @@ export const Hospital = () => {
     return (
         <motion.div
             ref={ref}
-            className="sticky top-[8%] md:top-[13%] z-30 flex flex-col lg:flex-row items-start gap-10  px-6 border-b border-gray-300  "
+            className=" 
+            flex flex-col lg:flex-row items-start gap-10  px-6 border-b border-gray-300  "
             style={{
                 y, // Apply scroll effect on Y position
             }}
