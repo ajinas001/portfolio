@@ -48,7 +48,7 @@ const About = () => {
         <p className="text-base md:text-3xl font-light leading-relaxed max-w-7xl text-start mt-6">
           I&apos;m a passionate full-stack developer with a strong foundation in both frontend and backend technologies. 
           I excel at creating dynamic and efficient web applications, prioritizing functionality, user experience, and code quality. 
-          Currently, I&apos;m expanding my backend expertise, focusing on microservice architecture to build highly scalable and modular systems.
+          {/* Currently, I&apos;m expanding my backend expertise, focusing on microservice architecture to build highly scalable and modular systems. */}
         </p>
 
         <p className='text-base md:text-3xl font-light leading-relaxed max-w-7xl text-start mt-8'>
