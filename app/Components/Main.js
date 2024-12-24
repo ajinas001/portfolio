@@ -125,7 +125,7 @@ export const Hero = () => {
             initial="hidden"
             animate="visible"
           >
-            Open to freelance
+            Open to Work
           </motion.button>
         </motion.div>
       </motion.div>

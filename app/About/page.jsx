@@ -22,6 +22,12 @@ const About = () => {
 
   return (
     <>
+     <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6 }}
+    >
       <Navbar />
       <div
         className="relative min-h-screen px-8 py-16 flex flex-col justify-center items-center bg-white text-black mt-16"
@@ -29,7 +35,7 @@ const About = () => {
       >
         {/* Main Heading */}
         <motion.h1
-          className="text-3xl md:text-6xl mb-4 w-full border-b-2 p-4 border-black font-bold"
+          className="text-3xl md:text-6xl mb-4 max-w-7xl w-full border-b-2 p-4 border-black font-bold"
           style={{
             opacity: headingOpacity,
             y: headingY,
@@ -39,20 +45,20 @@ const About = () => {
         </motion.h1>
 
         {/* Paragraph */}
-        <p className="text-base md:text-3xl font-light leading-relaxed max-w-9xl text-start mt-6">
+        <p className="text-base md:text-3xl font-light leading-relaxed max-w-7xl text-start mt-6">
           I&apos;m a passionate full-stack developer with a strong foundation in both frontend and backend technologies. 
           I excel at creating dynamic and efficient web applications, prioritizing functionality, user experience, and code quality. 
           Currently, I&apos;m expanding my backend expertise, focusing on microservice architecture to build highly scalable and modular systems.
         </p>
 
-        <p className='text-base md:text-3xl font-light leading-relaxed max-w-9xl text-start mt-8'>
+        <p className='text-base md:text-3xl font-light leading-relaxed max-w-7xl text-start mt-8'>
           I&apos;m a constant learner, staying abreast of the latest trends and best practices. 
           I thrive in collaborative and independent environments, tackling complex challenges with a problem-solving mindset. 
           My dedication to continuous learning equips me to deliver exceptional results for diverse projects and contribute to the development of cutting-edge web applications.
         </p>
 
         {/* Skills Section */}
-        <div className="mt-12 w-full text-left">
+        <div className="mt-12 w-full text-left max-w-7xl">
           <h2 className="text-2xl md:text-4xl font-semibold text-black w-full border-b-2 p-4 border-black">Skills & Expertise</h2>
           <ul className="mt-4 text-base md:text-xl space-y-2">
             <li>• Full Stack Web Development (Next, React, Node.js, Express.js, MongoDB, SQL)</li>
@@ -123,6 +129,7 @@ const About = () => {
           </div>
         </footer>
       </div>
+      </motion.div>
     </>
   );
 };
