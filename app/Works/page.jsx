@@ -93,7 +93,7 @@ const Works = () => {
         </div>
         <Ecom/>
         <Hospital/>
-        {/* <footer className="w-full mt-12 text-gray-600">
+        {/* <footer className="w-full mt-12 text-gray-600 ">
           <div className="flex flex-col sm:flex-row justify-between items-center border-t border-black pt-6 space-y-4 sm:space-y-0">
             <p className="text-sm font-medium">
               Ajinas<span className="text-black">.</span>

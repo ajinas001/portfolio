@@ -22,7 +22,7 @@ export const Hospital = () => {
                 y, // Apply scroll effect on Y position
             }}
         >
-            <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#91aa9d] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
+            <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#3e606f] w-full h-full md:h-[600px] rounded-3xl p-4 md:p-8">
                 {/* Left Side: Image */}
                 <div className="py-4 md:py-2 relative md:w-2/4 flex flex-col justify-center items-center">
                     <motion.img
